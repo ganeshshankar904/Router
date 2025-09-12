@@ -6,7 +6,11 @@
 //
 
 // MARK: - Models
-
+//struct User: Decodable, Identifiable {
+//    let id: Int
+//    let name: String
+//    let email: String
+//}
 struct User: Codable, Identifiable {
     let id: Int
     let name: String
