@@ -14,18 +14,11 @@ struct LoginView: View {
             ZStack {
                 // Background gradient - top half with rounded bottom
                 VStack(spacing: 0) {
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(red: 1.0, green: 0.4, blue: 0.2),
-                            Color(red: 1.0, green: 0.5, blue: 0.3),
-                        ]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                    .frame(height: geometry.size.height / 2)
-                    .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
+                    LinearGradient.primaryOrange
+                        .frame(height: geometry.size.height / 2)
+                        .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
 
-                    Color.clear
+                    Color.white
                         .frame(height: geometry.size.height / 2)
                 }
                 .ignoresSafeArea()
@@ -189,27 +182,6 @@ struct LoginView: View {
                 }
             }
         }
-    }
-}
-
-// Extension to apply corner radius to specific corners
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners))
-    }
-}
-
-struct RoundedCorner: Shape {
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(
-            roundedRect: rect,
-            byRoundingCorners: corners,
-            cornerRadii: CGSize(width: radius, height: radius)
-        )
-        return Path(path.cgPath)
     }
 }
 
