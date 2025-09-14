@@ -10,9 +10,7 @@ import SwiftUI
 
 // enum for Diffrent Views
 enum AppRoute: Hashable {
-    case home
-    case profile
-    case detail(id: Int)
+    case userLogin
 }
 
 @MainActor

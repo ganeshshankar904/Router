@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(Router.self) var router
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -120,6 +121,7 @@ struct LoginView: View {
                                 // Login button
                                 Button(action: {
                                     // Login action
+                                    router.navigate(to: .userLogin)
                                 }) {
                                     Text("Login")
                                         .font(
@@ -213,4 +215,5 @@ struct RoundedCorner: Shape {
 
 #Preview {
     LoginView()
+        .environment(Router())
 }
